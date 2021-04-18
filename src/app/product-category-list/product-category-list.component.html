@@ -1,0 +1,32 @@
+
+<h2>Product-list</h2>
+<!-- <nav class="navbar">
+ Search: <input class="form-control" type="text" name="search" [(ngModel)]="filter">      
+</nav> -->
+<table class="table table-striped">
+   <thead>
+     <tr>
+       <th>S.no</th>
+       <!-- (click)="sort('name')" -->
+       <th >Productname
+        <!-- <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span> -->
+       </th> 
+       <th>Actions</th>
+     </tr>
+   </thead>cv
+   <tbody>
+    <!-- | orderBy: key : reverse | filter:filter; let i = index -->
+     <tr *ngFor="let product of products | paginate:{itemsPerPage: 3, currentPage:page} ">
+       <td>{{product.Id}}</td>
+       <td>{{product.name}}</td>
+       <td>
+         <a (click)="updateProduct(product.Id)" class="btn btn-info">Update</a>
+         <!-- <a (click)="deleteProduct(product.Id)" class="btn btn-danger" style="margin-left: 10px;">Delete</a> -->
+         <a (click)="productDetails(product.Id)" class="btn btn-danger" style="margin-left: 10px;">View</a>
+       </td>
+     </tr>
+     <div id="pagination">
+      <pagination-controls (pageChange)="page=$event"></pagination-controls>
+    </div>  
+   </tbody>
+</table>

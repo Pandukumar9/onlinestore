@@ -1,0 +1,20 @@
+
+<div class="container">
+  <h2>Product category</h2>
+   <div>
+     <form (ngSubmit)="onSubmit()">
+       <diV class="form-group">
+          <label>Product Name:</label>
+          <input type="text"  class="form-control" [(ngModel)]="productct.name" name="name">
+       </diV>
+       <diV class="form-group">
+        <label>IsActive:</label>
+        <input type="checkbox"  class="form-control" [(ngModel)]="productct.isactive" name="isactive">
+     </diV>
+     <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+   </div>
+</div>
+
+<h2>{{productct.name | json}}</h2>
+
